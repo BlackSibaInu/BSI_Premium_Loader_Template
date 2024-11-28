@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSI_Premium_Coin_Loader_Template</title>
+    <style>
+        :root {
+            --primary-color: #ffd700;
+            --background-color: #0a0a0f;
+            --shadow-color: rgba(255, 215, 0, 0.3);
+            --text-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--background-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+        }
+
+        .loader-container:hover {
+            transform: scale(1.1);
+        }
+
+        .coin {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: glow 2s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%; /* Делает сам элемент кругом */
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color), 0 0 60px var(--primary-color);
+            }
+            100% {
+                box-shadow: 0 0 40px var(--primary-color), 0 0 60px var(--primary-color), 0 0 80px var(--primary-color);
+            }
+        }
+
+        .coin-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%; /* Круглая форма */
+            background: radial-gradient(circle at 30% 30%, var(--primary-color), #b8860b);
+            box-shadow: 
+                0 0 30px var(--shadow-color),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .shiba-logo {
+            width: 80%;
+            height: 80%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ffffff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            border-radius: 50%; /* Круглая форма */
+        }
+
+        .shiba-logo::after {
+            content: "©";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .coin-shadow {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 20px;
+            background: var(--shadow-color);
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: shadow-pulse 4s linear infinite;
+        }
+
+        @keyframes shadow-pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+            50% { transform: translateX(-50%) scale(0.85); opacity: 0.4; }
+        }
+
+        .bsi-text {
+            position: absolute;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-color);
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--shadow-color);
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+        }
+
+        .bsi-text:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        .ambient-light {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, 
+                rgba(255, 215, 0, 0.05) 0%,
+                rgba(10, 10, 15, 0) 70%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-light"></div>
+    <div class="loader-container">
+        <div class="coin">
+            <div class="coin-face front">
+                <div class="shiba-logo"></div>
+            </div>
+            <div class="coin-face back">
+                <div class="shiba-logo"></div>
+            </div>
+        </div>
+        <div class="coin-shadow"></div>
+        <div class="bsi-text">BSI_Premium_Coin_Loader_Template</div>
+    </div>
+</body>
+</html>
