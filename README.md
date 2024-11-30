@@ -16,17 +16,15 @@
 ## Установка
 
 1. **Получение кода:**
-   ```bash
-   git clone https://github.com/blacksibainu/BSI_Premium_Loader_Template
-.git
    ```
-
-2. **Переход в папку проекта:**
-   ```bash
+   git clone https://github.com/blacksibainu/BSI_Premium_Loader_Template.git
+   ```
+3. **Переход в папку проекта:**
+   ```
    cd BSI_Premium_Loader_Template
    ```
 
-3. **Запуск демонстрации:**
+4. **Запуск демонстрации:**
    - Запустите `index.html` через веб-браузер
 
 ## Руководство по внедрению
