@@ -17,12 +17,13 @@
 
 1. **Получение кода:**
    ```bash
-   git clone https://github.com/yourusername/shiba-inu-loader.git
+   git clone https://github.com/blacksibainu/BSI_Premium_Loader_Template
+.git
    ```
 
 2. **Переход в папку проекта:**
    ```bash
-   cd shiba-inu-loader
+   cd BSI_Premium_Loader_Template
    ```
 
 3. **Запуск демонстрации:**
